@@ -114,6 +114,9 @@ export const StyledRegisterPage = styled.div`
         form {
             width: 500px;
             height: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .div-p {
             display: flex;

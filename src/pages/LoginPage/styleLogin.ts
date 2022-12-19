@@ -120,7 +120,7 @@ export const StyledLoginPage = styled.div`
 
         form {
             width: 500px;
-            height: 600px;
+            height: 520px;
         }
         .div-p {
             display: flex;
