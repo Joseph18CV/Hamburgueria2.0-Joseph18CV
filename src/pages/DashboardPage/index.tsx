@@ -10,26 +10,28 @@ function DashboardPage () {
     const { addProductCart } = useContext(CartContext)
 
     return (
-        <StyledDashboardPage>
+        <>
             <Header/>
-            <div className="div-ul">
-                <ul>
-                {userData?.map((product, index) => (
-                    <li key={index}>
-                        <div className="div-img">
-                            <img src={product.img} alt="" />
-                        </div>
-                        <div className="div-info">
-                            <h3>{product.name}</h3>
-                            <p>{product.category}</p>
-                            <span>{(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price))}</span>
-                            <button onClick={() => addProductCart(product)}>Adicionar</button>
-                        </div>
-                    </li>
-                ))}
-                </ul>
-            </div>
-        </StyledDashboardPage>
+            <StyledDashboardPage>
+                <div className="div-ul">
+                    <ul>
+                    {userData?.map((product, index) => (
+                        <li key={index}>
+                            <div className="div-img">
+                                <img src={product.img} alt="" />
+                            </div>
+                            <div className="div-info">
+                                <h3>{product.name}</h3>
+                                <p>{product.category}</p>
+                                <span>{(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price))}</span>
+                                <button onClick={() => addProductCart(product)}>Adicionar</button>
+                            </div>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+            </StyledDashboardPage>
+        </>
     )
 }
 

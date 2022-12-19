@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const StyledTotalCart = styled.div`
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
 
     .total-and-price {
         display: flex;

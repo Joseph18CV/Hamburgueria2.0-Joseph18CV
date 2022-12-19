@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const StyledModalBackgroundOpenCart = styled.div`
     position: fixed;
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
-    height: 125vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     
@@ -18,11 +17,11 @@ export const StyledModalBackgroundOpenCart = styled.div`
 export const StyledModalOpenCart = styled.div`
     margin-top: 150px;
     width: 375px;
-    max-height: 375px;
-    background-color: white;
-    overflow: hidden;
+    height: 245px;
+    max-height: 100%;
     overflow-y: scroll;
-    padding: 15px 15px;
+    background-color: white;
+    padding: 15px 0px;
 
     .header-modal {
         background-color: var(--color-primary);
@@ -31,9 +30,8 @@ export const StyledModalOpenCart = styled.div`
         justify-content: space-between;
         height: 54px;
         padding: 0px 15px;
-        width: 113%;
+        width: 100%;
         margin-top: -20px;
-        margin-left: -17px;
         margin-bottom: 20px;
     }
 
@@ -50,12 +48,15 @@ export const StyledModalOpenCart = styled.div`
         color: rgba(255, 255, 255, 0.5);
     }
 
-    ul {
+    .ul-modal {
         border: none;
         display: flex;
         flex-direction: column;
-        padding-bottom: 15px;
         border-bottom: 1px solid var(--grey-100);
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        gap: 20px;
     }
 
     ul > li {
@@ -63,6 +64,7 @@ export const StyledModalOpenCart = styled.div`
         display: flex;
         justify-content: space-between;
         width: 100%;
+        align-items: flex-start;
     }
 
     ul > li:hover {
@@ -91,7 +93,7 @@ export const StyledModalOpenCart = styled.div`
     }
 
     ul > li img {
-        margin-top: -50px;
+        margin-top: 4px;
     }
 
     .name-and-buttons {
@@ -107,5 +109,8 @@ export const StyledModalOpenCart = styled.div`
         color: #333333;
     }
 
+    @media(min-width: 950px){
+        height: 375px; 
+    }
     
 `

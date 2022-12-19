@@ -43,9 +43,14 @@ function CartProvider ({children}: iCartProviderProps) {
 
     function addProductCart (productData: iUserData) {
         const cart = userDataCart.find((product => product.id === productData.id))
-        if(!cart){
-            setUserDataCart([...userDataCart, productData])
-        }else{                                                                                                 
+        if(cart){
+            const cartIndex = userDataCart.findIndex((product => product.id === productData.id))
+            const item = userDataCart.splice(cartIndex, 1)
+            item[0].quantity += 1
+            setUserDataCart([item[0], ...userDataCart])    
+        }else{ 
+            productData.quantity = 1 
+            setUserDataCart([...userDataCart, productData])                                                                                               
         }
     }
 
