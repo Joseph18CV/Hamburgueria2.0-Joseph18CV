@@ -9,6 +9,7 @@ interface iCartProviderProps{
 
 interface iCartProviderValue{
     addProductCart: (productData: iUserData) => void;
+    removeCountQuantity: (productData: iUserData) => void;
     filterProducts: () => void;
     logOut: () => void;
     userDataCart: iUserData[];
@@ -44,13 +45,30 @@ function CartProvider ({children}: iCartProviderProps) {
     function addProductCart (productData: iUserData) {
         const cart = userDataCart.find((product => product.id === productData.id))
         if(cart){
-            const cartIndex = userDataCart.findIndex((product => product.id === productData.id))
-            const item = userDataCart.splice(cartIndex, 1)
-            item[0].quantity += 1
-            setUserDataCart([item[0], ...userDataCart])    
+            const newDataCart = userDataCart.map((item) => {
+                if(item.id === productData.id){
+                    item.quantity += 1
+                }
+                return item  
+            })
+            setUserDataCart(newDataCart)    
         }else{ 
             productData.quantity = 1 
             setUserDataCart([...userDataCart, productData])                                                                                               
+        }
+    }
+
+    function removeCountQuantity (productData: iUserData) {
+        if(productData.quantity > 1){
+            const newDataCart = userDataCart.map((item) => {
+                if(item.id === productData.id){
+                    item.quantity = item.quantity - 1
+                }
+                return item  
+            })
+            setUserDataCart(newDataCart)  
+        }else{
+            removeProductCart(productData)                                                                                             
         }
     }
 
@@ -74,7 +92,8 @@ function CartProvider ({children}: iCartProviderProps) {
             setModalOpenCart, 
             modalOpenCart,
             removeProductCart,
-            removeAllProductCart
+            removeAllProductCart,
+            removeCountQuantity
             }}>
             {children}
         </CartContext.Provider>

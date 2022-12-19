@@ -7,7 +7,7 @@ import { StyledModalBackgroundOpenCart, StyledModalOpenCart } from "./styleModal
 
 function ModalOpenCart () {
 
-    const {setModalOpenCart, userDataCart, removeProductCart, addProductCart} = useContext(CartContext)
+    const {setModalOpenCart, userDataCart} = useContext(CartContext)
 
     return (
         <StyledModalBackgroundOpenCart>

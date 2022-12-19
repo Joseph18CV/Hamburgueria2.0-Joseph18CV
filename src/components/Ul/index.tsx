@@ -4,7 +4,7 @@ import Trash from "../../@types/assets/trash.svg";
 
 function Ul () {
 
-    const {userDataCart, removeProductCart, addProductCart} = useContext(CartContext)
+    const {userDataCart, removeProductCart, addProductCart, removeCountQuantity} = useContext(CartContext)
 
     return (
         <ul className="ul-modal">
@@ -17,7 +17,7 @@ function Ul () {
                         <div className="name-and-buttons">
                             <h3>{product.name}</h3>
                         <div className="buttons">
-                            <button>-</button>
+                            <button onClick={() => removeCountQuantity(product)}>-</button>
                             <span>{product.quantity}</span>
                             <button onClick={() => addProductCart(product)}>+</button>
                         </div>
